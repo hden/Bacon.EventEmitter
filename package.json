@@ -1,7 +1,7 @@
 {
   "name": "Bacon.EventEmitter",
   "version": "0.0.1",
-  "description": "Light weight Baconized EventEmitter",
+  "description": "Light-weight Baconized EventEmitter",
   "main": "lib/EventEmitter.js",
   "scripts": {
     "test": "mocha"

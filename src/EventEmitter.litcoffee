@@ -1,11 +1,27 @@
 Bacon.EventEmitter
 ==================
 
-Light weight Baconized EventEmitter
+Light-weight Baconized EventEmitter
 
 This document is written in Literate CoffeeScript
 
     'use strict'
+
+## Install
+
+You can download the latest [generated javascript](https://raw.github.com/hden/Bacon.EventEmitter/master/lib/EventEmitter.bundle.js).
+
+..or you can use script tags to include this file directly from Github:
+
+```
+<script src="https://raw.github.com/hden/Bacon.EventEmitter/master/lib/EventEmitter.bundle.js"></script>
+```
+
+If you're using node.js, you can
+
+```
+npm install https://github.com/hden/Bacon.EventEmitter
+```
 
 ## Dependency
 
