@@ -1,0 +1,30 @@
+{
+  "name": "Bacon.EventEmitter",
+  "version": "0.0.1",
+  "description": "Light weight Baconized EventEmitter",
+  "main": "lib/EventEmitter.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hden/Bacon.EventEmitter.git"
+  },
+  "keywords": [
+    "EventEmitter",
+    "Bacon",
+    "RFP"
+  ],
+  "author": "Hao-kang Den <haokang.den@gmail.com>",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "gitHead": "dc2e2ca1146859f304906a917900b09882dd4059",
+  "dependencies": {
+    "baconjs": "~0.3.0"
+  },
+  "devDependencies": {
+    "browserify": "~2.10.2",
+    "coffeeify": "~0.3.0",
+    "coffee-script": "~1.6.2"
+  }
+}
