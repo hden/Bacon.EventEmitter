@@ -30,9 +30,8 @@ It depends on
 * EventEmitter
 * Bacon
 
-    events = require 'events'
-    Bacon = require 'baconjs'
-    EE = events.EventEmitter
+    EE = require('events').EventEmitter
+    Bacon = require('baconjs')
 
 Gracefully exit when requirements are not met.
 
@@ -44,42 +43,41 @@ Save a reference to the global object (window in the browser, exports on the ser
 
     root = @
 
-## Common methods
+## Class definition
 
-    common = {
+    class EventEmitter extends EE
 
 Provide a cached event stream based on the given event
 
       asEventStream: (event) ->
-        cache = @asEventStream
-        cache[event] = Bacon.fromEventTarget(@, event) unless cache[event]?
-        return cache[event]
+        cached = @asEventStream
+        cached[event] = Bacon.fromEventTarget(@, event) unless cached[event]?
+        return cached[event]
 
 Alias for `asEventStream`
 
       es: (event) ->
         @asEventStream(event)
 
-Provide a event relay mechanism based on a internal Bus
+Provide a event relay mechanism based on a internal Bus. Use the second parameter to map events.
+Returns a function that can be used to unplug the same stream.
 
-      plug: (eventStream) ->
+      plug: (eventStream, options = {onValue: 'value', onError: 'error', onEnd: false}) ->
         {bus} = @plug
         unless bus?
           @plug.bus = new Bacon.Bus()
           {bus} = @plug
-          bus.onValue (value) -> @emit 'value', value
-          bus.onError (error) -> @emit 'error', error
+          if options.onValue then bus.onValue (value) => @emit options.onValue, value
+          if options.onError then bus.onError (error) => @emit options.onError, error
+          if options.onEnd then bus.onEnd (end) => @emit options.onEnd, end
         return bus.plug eventStream
-    }
 
-## Class definition
+Baconize an existing EventEmitter instance
 
-    class EventEmitter extends EE
-      asEventStream: common.asEventStream
-      es: common.es
-      @wrap: (obj) ->
-        obj.asEventStream = common.asEventStream
-        obj.es = common.es
+      @mixin: (obj) ->
+        for key of EventEmitter::
+          obj[key] = EventEmitter::[key] unless obj[key]?
+        return obj
 
 ## Export
 
@@ -93,4 +91,12 @@ Exported for both the browser and the server.
 
 Current version of the library. Keep in sync with package.json
 
-    EventEmitter.version = '0.0.1'
+    EventEmitter.version = '0.0.2'
+
+## Licence
+
+    ###
+    Bacon.EventEmitter: Light-weight Baconized EventEmitter
+    Copyright(c) 2013 Hao-kang Den <haokang.den@gmail.com>
+    MIT Licenced
+    ###
