@@ -23,7 +23,7 @@
     "baconjs": "~0.3.0"
   },
   "devDependencies": {
-    "browserify": "2.10.2",
+    "browserify": "2.36.1",
     "coffeeify": "0.3.0",
     "coffee-script": "1.6.3"
   }
