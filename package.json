@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "browserify": "2.10.2",
-    "coffeeify": "0.3.0",
+    "coffeeify": "0.7.0",
     "coffee-script": "1.6.3"
   }
 }
