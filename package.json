@@ -20,7 +20,7 @@
   "readmeFilename": "README.md",
   "gitHead": "dc2e2ca1146859f304906a917900b09882dd4059",
   "dependencies": {
-    "baconjs": "~0.3.0"
+    "baconjs": "~3.0.0"
   },
   "devDependencies": {
     "browserify": "2.10.2",
